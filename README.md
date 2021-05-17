@@ -182,3 +182,4 @@ combined.jar中没有主清单属性,解压后发现原来在MANIFEST.MF中没�
 
 这个目录结构不要更改,只需要把所有要进行合并的jar文件放在jar_files目录中然后双击combineJar.bat就会执行jar的解压,修改MANIFEST.MF文件,合并jar文件这三个步骤,合并后的jar会在combined_jar文件夹中.其中合并以后jar的名称,和入口类可以自己在combineJar.py脚本中指定.
   
+[github地址](https://github.com/monkey-jz/smali_compile). 
