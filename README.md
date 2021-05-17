@@ -1,7 +1,7 @@
 # smali_compile
 
 ## 背景
-  GodSDK后台的打包脚本中有一步是需要把所有的smali文件转成一个dex文件,使用官方提供的smali.jar[smali下载地址](https://bitbucket.org/JesusFreke/smali/downloads/)在执行转换操作的时候会报出错误,意思是smali中的文件中的方法数超过的65535,报错如下:
+  python打包脚本中有一步是需要把所有的smali文件转成一个dex文件,使用官方提供的smali.jar[smali下载地址](https://bitbucket.org/JesusFreke/smali/downloads/)在执行转换操作的时候会报出错误,意思是smali中的文件中的方法数超过的65535,报错如下:
 
     
     Exception in thread "main" org.jf.util.ExceptionWithContext: Exception occurred while writing code_item for method LMTT/ThirdAppInfoNew;-><init>()V
