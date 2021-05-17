@@ -1,8 +1,6 @@
 # smali_compile
 
-# smali_compile
-
-##背景
+## 背景
   GodSDK后台的打包脚本中有一步是需要把所有的smali文件转成一个dex文件,使用官方提供的smali.jar[smali下载地址](https://bitbucket.org/JesusFreke/smali/downloads/)在执行转换操作的时候会报出错误,意思是smali中的文件中的方法数超过的65535,报错如下:
 
     
@@ -34,6 +32,7 @@
 使用smali.jar把smali转成dex文件这一步目的是统计出dex文件中的方法数和字段数,所以我们可以无视这个异常,就是把抛出异常的这句代码注释掉就行了,这样的话我们就需要拿到smali的源码去改,然后再编译成jar,当然我们也可以做其他额外操作,这里我们只需注释掉这一行代码就行了.本文档的就是来讲如何将smali项目编译成jar文件.
 
 因为这是个java项目所以网上都是使用IDEA来编译smali,自己常用的是androidstudio,安装IDEA嫌麻烦,所以这里只是讲如何使用as来编译smali.
+
 #### 下载smali源码,这里以2.4.0版本为例
 
     git clone https://github.com/JesusFreke/smali.git
@@ -75,7 +74,7 @@
 
 至此所有需要的java文件都已经齐全,我们只需要把这些java打成一个jar然后再与这三个模块依赖的所有jar文件打成同一个jar就可以得到想要的smali-2.4.0.jar了,关于如何使用as将java文件打成jar文件和如何合并多个jar文件为一个jar文件后面会有介绍.
 
-###编译dexlib2
+### 编译dexlib2
 
 前面提到smali转dex报错的是dexlib2中的代码,所有我们只需要修改编译这个模块的代码就行了,然后将之与smali,util和依赖的其它的库一起打成一个jar就行了.依赖的jar我们都有了,如果我们有smali.jar和util.jar就好了.[这里有](https://jar-download.com/artifacts/org.smali/smali)smali各个版本的jar以及它所依赖的所有jar,这里我们需要下载2.4.0版本的jar,这是一个zip包里面包含了所有需要的jar文件.
 
@@ -137,7 +136,7 @@
 
 ![](https://i.postimg.cc/WbTTd8jX/output-dexlib2.png)
 
-###合并jar文件
+### 合并jar文件
 
 jdk中提供了jar工具来合并jar文件,合并jar文件分两步.
 第一步解压jar文件,命令:
@@ -177,7 +176,7 @@ combined.jar中没有主清单属性,解压后发现原来在MANIFEST.MF中没�
 
 经过以上步骤我们得到的jar就可以打包了.
 
-###脚本
+### 脚本
 为了合并jar这一步更快捷,这里我准备了一个python脚本和bat文件:
  ![](https://i.postimg.cc/wxJKzGy7/python-bat.png)
 
