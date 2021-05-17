@@ -1,0 +1,2 @@
+rootProject.name = "smali_compile"
+include ':app'
