@@ -105,7 +105,7 @@ public class DexDataWriter extends BufferedOutputStream {
 
     public void writeShort(int value) throws IOException {
         if (value < Short.MIN_VALUE || value > Short.MAX_VALUE) {
-//            throw new ExceptionWithContext("Short value out of range: %d", value);
+            throw new ExceptionWithContext("Short value out of range: %d", value);
         }
         write(value);
         write(value >> 8);
@@ -113,7 +113,7 @@ public class DexDataWriter extends BufferedOutputStream {
 
     public void writeUshort(int value) throws IOException {
         if (value < 0 || value > 0xFFFF) {
-            throw new ExceptionWithContext("Unsigned short value out of range: %d", value);
+            //throw new ExceptionWithContext("Unsigned short value out of range: %d", value);
         }
         write(value);
         write(value >> 8);
@@ -121,7 +121,7 @@ public class DexDataWriter extends BufferedOutputStream {
 
     public void writeUbyte(int value) throws IOException {
         if (value < 0 || value > 0xFF) {
-//            throw new ExceptionWithContext("Unsigned byte value out of range: %d", value);
+            throw new ExceptionWithContext("Unsigned byte value out of range: %d", value);
         }
         write(value);
     }

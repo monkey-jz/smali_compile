@@ -33,7 +33,7 @@ temp_jar_files_dir = os.path.join(jar_files_dir,'temp_jar_files')
 # 用来存放合并后的jar
 combined_jar_dir = os.path.join(parent_dir,'combined_jar')
 # 合并以后jar的名称
-combinedJarName = 'smali-2.4.0-dev.jar'
+combinedJarName = 'smali-2.5.2-dev.jar'
 #入口类
 main_class = 'org.jf.smali.Main'
 

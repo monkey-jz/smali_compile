@@ -25,7 +25,7 @@ android {
 
     android {
         lintOptions {
-            abortOnError true
+            abortOnError false
         }
     }
 
@@ -37,18 +37,18 @@ dependencies {
 
 task deleteOldJar(type: Delete) {
     //删除存在的
-    delete 'build/libs/dexlib2-2.4.0-dev.jar'
+    delete 'build/libs/dexlib2-2.5.2-dev.jar'
 }
 
 task makeJar(type: Jar) {
     //指定生成的jar名
-    baseName 'dexlib2-2.4.0-dev'
+    baseName 'dexlib2-2.5.2-dev'
     //设置拷贝的文件
     from('build/intermediates/javac/release/classes/')
     //去掉不需要打包的目录和文件
     exclude('com')
     //去掉R$开头的文件
-    exclude { it.name.startsWith('R$'); }
+    exclude { it.name.startsWith('R$')}
 }
 
 makeJar.dependsOn(deleteOldJar, build)
