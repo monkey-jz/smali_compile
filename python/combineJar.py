@@ -27,7 +27,7 @@ import traceback
 # 需要合并的jar文件目录
 
 parent_dir = os.path.abspath(os.path.dirname(__file__))
-jar_files_dir = os.path.join(parent_dir,"jar_files")
+jar_files_dir = os.path.join(parent_dir,"depency_jar_files")
 # 临时文件夹用来存放合并前的jar
 temp_jar_files_dir = os.path.join(jar_files_dir,'temp_jar_files')
 # 用来存放合并后的jar
