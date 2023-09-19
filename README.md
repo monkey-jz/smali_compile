@@ -63,7 +63,7 @@
 
 图中2下载的jar是smali模块中依赖的库
 
-.jflex文件是通过JFlex转换为java文件的,[JFlex下载地址](https://www.antlr3.org/download.html),JFlex是一个用于Java的词法分析器生成器(也称为scanner生成器).[github地址](https://github.com/jflex-de/jflex)
+.jflex文件是通过JFlex转换为java文件的,[JFlex下载地址](https://www.onworks.net/zh-CN/software/windows/app-jflex),JFlex是一个用于Java的词法分析器生成器(也称为scanner生成器).[github地址](https://github.com/jflex-de/jflex)
 
  ![](https://i.postimg.cc/Fz5tj9Rv/jflex.png)
 
