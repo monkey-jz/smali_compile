@@ -44,7 +44,7 @@
 
   ![](https://i.postimg.cc/mkZSP3rx/smali-dep.png)
 
-其中我们需要的源码为smali模块,通过as右侧gradle我们可以看到smali依赖了util和dexlib2模块和其它第三方的库(由此我们知道项目smali模块的源码只是官方发布的jar的一部分),baksmali是将dex转为smali我们这里用不到它,而根据我们打包报的错误我们发现异常最终是在dexlib2的DexDataWriter.java中的writeShort方法跑抛出的,所以我们只要注释掉dexlib2的DexDataWriter.java类的writeShort中抛出异常的代码即可.异常的问题解决了,但是如何将smali,dexlib2,util和smali依赖的其它第三方库打成一个jar是个问题,本文档也是主要讨论这个问题.
+其中我们需要的源码为smali模块,通过as右侧gradle我们可以看到smali依赖了util和dexlib2模块和其它第三方的库(由此我们知道项目smali模块的源码只是官方发布的jar的一部分),baksmali[新版本](https://mvnrepository.com/artifact/com.android.tools.smali/smali-baksmali/3.0.3)是将dex转为smali我们这里用不到它,而根据我们打包报的错误我们发现异常最终是在dexlib2的DexDataWriter.java中的writeShort方法跑抛出的,所以我们只要注释掉dexlib2的DexDataWriter.java类的writeShort中抛出异常的代码即可.异常的问题解决了,但是如何将smali,dexlib2,util和smali依赖的其它第三方库打成一个jar是个问题,本文档也是主要讨论这个问题.
 
 由于这个项目是java项目不符合as项目目录结构所以查看代码的时候会有很多找不到类的报错,我们需要用as新建一空的个android项目然后把smali,dexlib2和util中的java代码连同各自的包目录原封不动的拷贝到这新建的项目中的,然后将依赖库的jar放到libs文件夹中在build.gradle文件中添加依赖即可,依赖库的jar文件可以通过如下方式查找到
 
@@ -76,7 +76,7 @@
 
 ### 编译dexlib2
 
-前面提到smali转dex报错的是dexlib2中的代码,所有我们只需要修改编译这个模块的代码就行了,然后将之与smali,util和依赖的其它的库一起打成一个jar就行了.依赖的jar我们都有了,如果我们有smali.jar和util.jar就好了.[这里有](https://jar-download.com/artifacts/org.smali/smali)smali各个版本的jar以及它所依赖的所有jar,这里我们需要下载2.4.0版本的jar,这是一个zip包里面包含了所有需要的jar文件.
+前面提到smali转dex报错的是dexlib2中的代码,所有我们只需要修改编译这个模块的代码就行了,然后将之与smali,util和依赖的其它的库一起打成一个jar就行了.依赖的jar我们都有了,如果我们有smali.jar和util.jar就好了.[这里有](https://jar-download.com/artifacts/org.smali/smali)smali[新版本](https://mvnrepository.com/artifact/com.android.tools.smali/smali/3.0.3)各个版本的jar以及它所依赖的所有jar,这里我们需要下载2.4.0版本的jar,这是一个zip包里面包含了所有需要的jar文件.
 
   ![](https://i.postimg.cc/mgz5SPcH/smali-dep-download.png)
 
